@@ -63,4 +63,8 @@ app.get("/name", (req, res) => {
   res.send({ name: `${req.query.first} ${req.query.last}` });
 });
 
+app.post("/name", (req, res) => {
+  res.send({ name: `${req.body.first} ${req.body.last}` });
+});
+
 module.exports = app;

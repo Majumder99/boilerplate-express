@@ -8,6 +8,8 @@ const path = __dirname + "/views/index.html";
 
 //Middleware
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 const middleware = (req, res, next) => {
   const method = req.method;
   const path = req.path;
@@ -18,9 +20,6 @@ const middleware = (req, res, next) => {
 app.use(middleware);
 app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   // res.send("Hello Express");

@@ -35,4 +35,15 @@ app.get("/json", (req, res) => {
   }
 });
 
+const middleware1 = (req, res, next) => {
+  req.time = new Date().toString();
+  next();
+};
+
+app.get("/now", middleware1, (req, res) => {
+  res.send({
+    time: req.time,
+  });
+});
+
 module.exports = app;

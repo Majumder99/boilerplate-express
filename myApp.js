@@ -1,11 +1,13 @@
 let express = require("express");
 let app = express();
 require("dotenv").config({ path: "./config.env" });
+const bodyParser = require("body-parser");
 
 console.log("Hello World");
 const path = __dirname + "/views/index.html";
 
 //Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
 const middleware = (req, res, next) => {
   const method = req.method;
   const path = req.path;

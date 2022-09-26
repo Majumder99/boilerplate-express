@@ -8,6 +8,7 @@ const path = __dirname + "/views/index.html";
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 const middleware = (req, res, next) => {
   const method = req.method;
   const path = req.path;

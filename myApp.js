@@ -46,10 +46,17 @@ app.get("/now", middleware1, (req, res) => {
   });
 });
 
+//using route parameter
 app.get("/:word/echo", (req, res) => {
   res.send({
     echo: req.params.word,
   });
+});
+
+//using query parameter
+app.get("/name", (req, res) => {
+  // console.log(req.query);
+  res.send({ name: `${req.query.first} ${req.query.last}` });
 });
 
 module.exports = app;
